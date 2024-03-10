@@ -1,0 +1,35 @@
+syntax = "proto3";
+option go_package = "github.com/adarsh-jaiss/assingment/models";
+
+package twitter;
+
+service TwitterService {
+  // Retrieves user information from Twitter
+  rpc GetUser (UserRequest) returns (UserResponse);
+
+  // Obtains tweets from Twitter
+  rpc GetTweets (TweetsRequest) returns (TweetsResponse);
+}
+
+message UserRequest {
+  // Specify user ID or username for retrieval
+  string user_id = 1;
+}
+
+message UserResponse {
+  // Dummy user information
+  string username = 1;
+  string bio = 2;
+  // Add more fields as needed
+}
+
+message TweetsRequest {
+  // Specify parameters for tweet retrieval
+  string hashtag = 1;
+}
+
+message TweetsResponse {
+  // Dummy tweet information
+  repeated string tweets = 1;
+  // Add more fields as needed
+}
